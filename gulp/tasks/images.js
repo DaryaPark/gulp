@@ -13,12 +13,17 @@ export const images = () => {
         .pipe(app.gulp.dest(app.path.build.images))
         .pipe(app.gulp.src(app.path.dev.images))
         .pipe(app.plugins.newer(app.path.build.images))
-        .pipe(imagemin({
+        .pipe(
+            app.plugins.if(
+            app.isBuild,  
+            imagemin({
             progressive:true,
             svgoPlugins:[{ removeViewBox: false }],
             interlaced:true,
             optimizationLevel: 3 //0 to 7
-        }))
+        })
+    )
+)    
 
         .pipe(app.gulp.dest(app.path.build.images))
         .pipe(app.gulp.src(app.path.dev.svg))

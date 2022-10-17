@@ -1,0 +1,8 @@
+body {
+  background-color: #000;
+  background-image: url("../img/gallery.jpg");
+  display: block;
+}
+body span {
+  color: #098709;
+}
